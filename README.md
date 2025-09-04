@@ -434,7 +434,7 @@ En la cual empezaremos a calcular la media , mediana y desviacion estandar dada 
 
 El cual nos arroja los siguientes resultados:
 
-![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2009.25.47_bdcbcbbc.jpg)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2010.30.56_f21766df.jpg)
 
  **Análisis en el dominio del tiempo**
 
