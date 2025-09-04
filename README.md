@@ -441,7 +441,7 @@ El cual nos arroja los siguientes resultados:
 - Se calcularon métricas fundamentales: media, mediana y desviación estándar.
 - Se generó un histograma para visualizar la distribución de la señal.
 
-  ![](https://github.com/Nupan07/Laboratorio2/blob/main/Histogramalab2.png)
+  ![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2009.25.47_bdcbcbbc.jpg)
 
 ##  3️⃣ Transformada de Fourier
 
