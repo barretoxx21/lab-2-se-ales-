@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Feb 19 19:14:24 2025
-
-@author: valen
-"""
-
 import numpy as np
 import matplotlib.pyplot as plt
 import wfdb
@@ -17,7 +10,7 @@ def cargar_senal_ecg(archivo):
     return señal_ecg, frecuencia_muestreo
 
 # Cargar la señal automáticamente
-nombre_archivo = 'C:/Users/valen/Downloads/ath_003'  # Modificar con la ruta correcta
+nombre_archivo = "/content/ath_003"  # Modificar con la ruta correcta
 senal_ecg, fs = cargar_senal_ecg(nombre_archivo)
 
 # Caracterización en el dominio del tiempo
@@ -38,8 +31,17 @@ frecuencias = np.fft.fftfreq(len(senal_ecg), 1/fs)
 transformada = np.fft.fft(senal_ecg)
 
 # Densidad espectral de potencia
+# Densidad espectral de potencia con Welch
 frecuencias_welch, densidad_espectral = welch(senal_ecg, fs)
 
+# Gráfica de la PSD
+plt.figure(figsize=(12, 5))
+plt.semilogy(frecuencias_welch, densidad_espectral, color='r')
+plt.xlabel('Frecuencia (Hz)')
+plt.ylabel('Densidad espectral de potencia (V^2/Hz)')
+plt.title('Densidad Espectral de Potencia de la señal ECG')
+plt.grid()
+plt.show()
 # Análisis de estadísticos en el dominio de la frecuencia
 frecuencia_media = np.sum(frecuencias_welch * densidad_espectral) / np.sum(densidad_espectral)
 frecuencia_mediana = frecuencias_welch[np.where(np.cumsum(densidad_espectral) >= np.sum(densidad_espectral) / 2)[0][0]]
@@ -79,8 +81,8 @@ plt.tight_layout()
 plt.show()
 
 # Definir las secuencias h[n] y x[n]
-h = np.array([5, 6, 0, 0, 6, 3, 5])  # Código
-x = np.array([1, 0, 3, 1, 6, 4, 4, 1, 2, 4])  # Cédula
+h = np.array([5, 6, 0, 0, 6, 3, 4]) 
+x = np.array([1, 0, 3, 1, 4, 2, 0, 2, 2, 7]) 
 
 # Realizar la convolución discreta
 y = np.convolve(x, h)
@@ -93,13 +95,13 @@ plt.figure(figsize=(10, 5))
 plt.stem(n_values, y)
 plt.xlabel('n')
 plt.ylabel('y[n]')
-plt.title('Convolución Olfred y[n]')
+plt.title('Convolución Juan y[n]')
 plt.grid()
 plt.show()
 
 # Definir nuevas secuencias h[n] y x[n]
-h_new = np.array([5, 6, 0, 0, 5, 5, 7])  # Código 5600557
-x_new = np.array([1, 1, 9, 3, 5, 6, 3, 2, 6, 1])  # Cédula 1193563261
+h_new = np.array([5, 6, 0, 0, 7, 0, 5])  
+x_new = np.array([1, 0, 8, 1, 7, 8, 9, 0, 9, 7]) 
 
 # Realizar la convolución discreta
 y_new = np.convolve(x_new, h_new)
@@ -112,7 +114,7 @@ plt.figure(figsize=(10, 5))
 plt.stem(n_values_new, y_new)
 plt.xlabel('n')
 plt.ylabel('y[n]')
-plt.title('Convolución Nupan y[n]')
+plt.title('Convolución Diego y[n]')
 plt.grid()
 plt.show()
 
