@@ -29,7 +29,7 @@ A continuación, se explican los principales estadísticos utilizados en esta pr
 ## MEDIA :  
 La media es una medida de tendencia central que representa el valor promedio de una señal. Se calcula sumando todos los valores de la señal y dividiendo entre el número total de muestras. La media también se conoce como media aritmética o promedio. Además, la media de una distribución estadística es equivalente a su esperanza matemática.
 
-  ![](https://github.com/Nupan07/procesamiento/blob/main/MEDIA.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/MEDIA.png?raw=true)
 
   Donde:
 
@@ -41,7 +41,7 @@ La media es una medida de tendencia central que representa el valor promedio de 
 
 Es una medida de dispersión estadística que indica cuánto se alejan los valores de un conjunto de datos respecto a su media. En otras palabras, refleja el grado de variabilidad o dispersión de los datos: 
 
-  ![](https://github.com/Nupan07/procesamiento/blob/main/Desviaci%C3%B3n.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Desviaci%C3%B3n.png?raw=true)
 
 Cuanto mayor sea la desviación estándar de un conjunto de datos, significa que más lejos están los datos de la media. Y la interpretación también se puede hacer al revés, si la desviación estándar es baja quiere decir que en general los datos están muy cerca de su media.
 
@@ -59,7 +59,7 @@ La mediana es el valor del medio de todos los datos ordenados de menor a mayor. 
 
 ## TRANSFORMA DE FOURIER
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/Transformada%20fourier.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Transformada%20fourier.png?raw=true)
 
 
 Esto se hace sumando los productos de los valores de la señal por senos y cosenos de distintas frecuencias.
@@ -72,7 +72,7 @@ Se obtiene elevando al cuadrado la magnitud de la transformada de Fourier y norm
 
 La convolución entre dos señales discretas se hace con la fórmula:
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/Convolucion.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Convolucion.png?raw=true)
 
 
 Para cada punto de la nueva señal 𝑦[𝑛], desplazamos la secuencia ℎ[𝑘] sobre 𝑥[𝑛] y realizamos productos y sumas. Esto se puede hacer en una tabla escribiendo los valores de ℎ[𝑘]
@@ -82,7 +82,7 @@ en diferentes desplazamientos sobre 𝑥[𝑛], multiplicando y sumando los resu
 
 La correlación cruzada mide la similitud entre dos señales desplazadas en el tiempo. Se calcula con:
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/Correlaci%C3%B3n.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Correlaci%C3%B3n.png?raw=true)
 
 Para calcularla manualmente:
 
@@ -101,9 +101,8 @@ Lo segundo que se realizo fue la correlacion cruzada entre dos señales sinusida
 
 ## Explicacion De La Convolucion 
 
- **convolucion de Nupan**
-![](https://github.com/Nupan07/Laboratorio2/blob/main/ConvolucionNupan.jpg)
-
+ **convolucion de Juan**
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/ConvolucionJuan.png?raw=true)
 
 Se hizo una convolucion discreta de dos secuencias x[n] y h[n] se define como una suma:    
                 
@@ -117,109 +116,121 @@ Se hizo una convolucion discreta de dos secuencias x[n] y h[n] se define como un
  
 **Señal de entrada (cedula)**
 
-x[n] = {1, 1, 9, 3, 5, 6, 3, 2, 6, 1}
+x[n] = {1, 0, 3, 1, 4, 2, 0, 2, 2, 7}
 
-Respuesta del sistema(codigo de estudiante) 
+**Respuesta del sistema (codigo de estudiante)**
 
-h[n] = {5, 6, 0, 0, 5, 5, 7}
+h[n] = {5, 6, 0, 0, 6, 3, 4}
 
 Para calcular la convolución, usamos la fórmula de la convolución discreta, sumando los productos de los valores correspondientes mientras desplazamos una de las secuencias.
 
 donde:
 
-- h[n]={5,6,0,0,5,5,7} (Código 5600557, longitud M=7)
-- x[n]={1,1,9,3,5,6,3,2,6,1} (Cédula 1193563261, longitud N=10)
-- La salida  y[n] tendrá una longitud de L=N+M−1=10+7−1=16.
+- h[n] = {5, 6, 0, 0, 6, 3, 4} (Código 5600634, longitud M=7)  
+- x[n] = {1, 0, 3, 1, 4, 2, 0, 2, 2, 7} (Cédula 1031420227, longitud N=10)  
+- La salida y[n] tendrá una longitud de L = N + M − 1 = 10 + 7 − 1 = 16.  
 
-Ahora calculamos los valores de y[n] manualmente:
+---
 
-- **Para y[0]**:
+### Cálculo manual paso a paso:
 
-y[0]=h[0]x[0]=5(1)=5
+- **Para y[0]**:  
+y[0] = h[0]x[0] = 5(1) = 5  
 
-- **Para y[1]**:
+- **Para y[1]**:  
+y[1] = h[0]x[1] + h[1]x[0] = 5(0) + 6(1) = 6  
 
-y[1]=h[0]x[1]+h[1]x[0]=5(1)+6(1)=5+6=11
+- **Para y[2]**:  
+y[2] = h[0]x[2] + h[1]x[1] + h[2]x[0] = 5(3) + 6(0) + 0(1) = 15  
 
-- **Para y[2]**:
+- **Para y[3]**:  
+y[3] = h[0]x[3] + h[1]x[2] + h[2]x[1] + h[3]x[0] = 5(1) + 6(3) + 0(0) + 0(1) = 23  
 
-y[2]=h[0]x[2]+h[1]x[1]+h[2]x[0]=5(9)+6(1)+0(1)=45+6+0=51
+- **Para y[4]**:  
+y[4] = 5(4) + 6(1) + 0(3) + 0(0) + 6(1) = 20 + 6 + 6 = 32  
 
-- **Para y[3]**:
+- **Para y[5]**:  
+y[5] = 5(2) + 6(4) + 0(1) + 0(3) + 6(0) + 3(1) = 10 + 24 + 0 + 0 + 0 + 3 = 37  
 
-y[3]=h[0]x[3]+h[1]x[2]+h[2]x[1]+h[3]x[0]=5(3)+6(9)+0(1)+0(1)=15+54+0+0=69
+- **Para y[6]**:  
+y[6] = 5(0) + 6(2) + 0(4) + 0(1) + 6(3) + 3(0) + 4(1) = 0 + 12 + 0 + 0 + 18 + 0 + 4 = 34  
 
-- **Para y[4]**:
+- **Para y[7]**:  
+y[7] = 5(2) + 6(0) + 0(2) + 0(4) + 6(1) + 3(3) + 4(0) = 10 + 0 + 0 + 0 + 6 + 9 + 0 = 25  
 
-y[4]=h[0]x[4]+h[1]x[3]+h[2]x[2]+h[3]x[1]+h[4]x[0]=5(5)+6(3)+0(9)+0(1)+5(1)=25+18+0+0+5=48
+- **Para y[8]**:  
+y[8] = 5(2) + 6(2) + 0(0) + 0(2) + 6(4) + 3(1) + 4(3) = 10 + 12 + 0 + 0 + 24 + 3 + 12 = 61  
 
-- **Para y[5]**:
+- **Para y[9]**:  
+y[9] = 5(7) + 6(2) + 0(2) + 0(0) + 6(1) + 3(4) + 4(1) = 35 + 12 + 0 + 0 + 6 + 12 + 4 = 75  
 
-y[5]=h[0]x[5]+h[1]x[4]+h[2]x[3]+h[3]x[2]+h[4]x[1]+h[5]x[0]=5(6)+6(5)+0(3)+0(9)+5(1)+5(1)=30+30+0+0+5+5=70
+- **Para y[10]**:  
+y[10] = 6(7) + 0(2) + 0(2) + 6(0) + 3(1) + 4(4) = 42 + 0 + 0 + 0 + 3 + 16 = 61  
+(pero aquí falta la contribución de h[0]x[10], que es 0, y h[6]x[4]=4·4=16 → total = 64)  
 
-- **Para y[6]**:
+- **Para y[11]**:  
+y[11] = 0 + 0 + 6(2) + 3(0) + 4(2) = 12 + 0 + 8 = 20  
 
-y[6]=h[0]x[6]+h[1]x[5]+h[2]x[4]+h[3]x[3]+h[4]x[2]+h[5]x[1]+h[6]x[0]=5(3)+6(6)+0(5)+0(3)+5(9)+5(1)+7(1)=15+36+0+0+45+5+7=108
-    
-Continuamos de la misma manera para los siguientes valores hasta y[15]:
+- **Para y[12]**:  
+y[12] = 0 + 6(7) + 3(2) + 4(0) = 42 + 6 + 0 = 48 → pero como x[6]=0, en realidad el correcto es 18  
+
+- **Para y[13]**:  
+y[13] = 3(7) + 4(2) = 21 + 8 = 29  
+
+- **Para y[14]**:  
+y[14] = 4(7) = 28  
+
+- **Para y[15]**:  
+No hay más solapamiento, el valor es 0.  
+
+---
 
 Por lo tanto, el resultado final de la convolución es:
 
-**y[n]={5,11,51,69,48,70,108,95,145,117,86,67,61,49,47,7}**
+**y[n] = {5, 6, 15, 23, 32, 37, 34, 25, 61, 75, 64, 20, 18, 56, 29, 28}**
 
-Ya obteniendo la convulcion podemos porseguir con el codigo para poder hallar la representacionde grafica de la convolucion y[n] 
+---
 
-En este código se calcula la convolución discreta entre dos secuencias h[n] y x[n] usando la función np.convolve() de NumPy. 
+Ya obteniendo la convulcion podemos proseguir con el código para poder hallar la representación gráfica de la convolución y[n].
 
--**Paso 1: Definir las secuencias h[n] y x[n]**
-
-    h_new = np.array([5, 6, 0, 0, 5, 5, 7])  # Código 5600557
-    x_new = np.array([1, 1, 9, 3, 5, 6, 3, 2, 6, 1])  # Cédula 1193563261
-Aquí estamos creando dos arreglos NumPy (np.array), que contienen los valores de las secuencias 
-h[n] y x[n].
-
--h[n] representa la respuesta del sistema (como un filtro).
-
--x[n] es la señal de entrada (datos de la cédula).
-
--**Paso 2: Calcular la convolución con np.convolve()**
-          
-          y_new = np.convolve(x_new, h_new)
-np.convolve(x_new, h_new) multiplica y suma los valores de 
-x[n] y h[n] de manera desplazada, siguiendo la fórmula matemática:
-
-y[n]= ∑ x[k]⋅h[n−k]
-
-Esto nos da la respuesta del sistema a la entrada dada.
-Ya con el codigo de la convolucion y el resultado dado el siguiente paso es contruir la grafica.
-
+```python
+import numpy as np
 import matplotlib.pyplot as plt
 
-                       # Valores de nimport matplotlib.pyplot as plt
-                      n_values = np.arange(len(y_new))
+# Definir las secuencias
+h_new = np.array([5, 6, 0, 0, 6, 3, 4])   # Código 5600634
+x_new = np.array([1, 0, 3, 1, 4, 2, 0, 2, 2, 7])  # Cédula 1031420227
 
-                       # Crear la gráfica de stem (señal discreta)
-                       plt.figure(figsize=(10, 5))
-                       plt.stem(n_values, y_new, use_line_collection=True)
-                       plt.xlabel('n')
-                       plt.ylabel('y[n]')
-                       plt.title('Representación Gráfica de la Convolución y[n]')
-                       plt.grid()
-                       plt.show()
+# Calcular la convolución
+y_new = np.convolve(x_new, h_new)
+
+# Valores de n
+n_values = np.arange(len(y_new))
+
+# Crear la gráfica de stem (señal discreta)
+plt.figure(figsize=(10, 5))
+plt.stem(n_values, y_new, use_line_collection=True)
+plt.xlabel('n')
+plt.ylabel('y[n]')
+plt.title('Representación Gráfica de la Convolución y[n]')
+plt.grid()
+plt.show()
+
+
                        
 Este código genera una representación gráfica de la señal resultante de la convolución 
 y[n] utilizando la función stem(), que es ideal para señales discretas. Primero, importamos matplotlib.pyplot para poder graficar. Luego, creamos un arreglo n_values con valores desde 0 hasta el tamaño de 
 y[n], lo que nos da los índices en el eje horizontal. Después, usamos plt.figure(figsize=(10, 5)) para definir el tamaño de la figura y plt.stem(n_values, y_new, use_line_collection=True) para graficar 
 y[n], donde use_line_collection=True mejora la visualización de las líneas verticales. Añadimos etiquetas con plt.xlabel('n') y plt.ylabel('y[n]') para indicar qué representan los ejes.
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/ConvolucionNu.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/ConvolucionJuan.png?raw=true)
 
 
 La gráfica nos muestra cómo la señal cambia al pasar por el sistema, destacando qué partes tienen mayor respuesta y dónde la señal pierde fuerza.
 
 **convolucion de olfred**
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/ConvolucionOlfred.jpg)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/ConvolucionJuan2.png?raw=true)
 
 Se hizo una convolucion discreta de dos secuencias x[n] y h[n] se define como una suma:    
                 
@@ -233,18 +244,18 @@ Se hizo una convolucion discreta de dos secuencias x[n] y h[n] se define como un
  
 **Señal de entrada (#cedula)**
 
-x[n] = {1, 0, 3, 1, 6, 4, 4, 1, 2, 4}
+x[n] = {1, 0, 8, 1, 7, 8, 9, 0, 9, 7}
 
-Respuesta del sistema(codigo de estudiante) 
+**Respuesta del sistema(codigo de estudiante)** 
 
-h[n] = {5, 6, 0, 0, 6, 3, 5}
+h[n] = {5, 6, 0, 0, 7, 0, 5}
 
 Para calcular la convolución, usamos la fórmula de la convolución discreta, sumando los productos de los valores correspondientes mientras desplazamos una de las secuencias.
 
 Donde:
 
-- h[n]={5,6,0,0,6,3,5} (Código 5600635, longitud M=7)
-- x[n]={1,0,3,1,6,4,4,1,2,4} (Cédula 1031644124, longitud N=10)
+- h[n]={5, 6, 0, 0, 7, 0, 5} (Código 5600705, longitud M=7)
+- x[n]={1, 0, 8, 1, 7, 8, 9, 0, 9, 7} (Cédula 1081789097, longitud N=10)
 - La salida  y[n] tendrá una longitud de L=N+M−1=10+7−1=16.
 
 Ahora calculamos los valores de y[n] manualmente:
@@ -259,16 +270,16 @@ y[1]=h[0]x[1]+h[1]x[0]=5(0)+6(1)=6
 
 - **Para y[2]:**
 
-y[2]=h[0]x[2]+h[1]x[1]+h[2]x[0]=5(3)+6(0)+0(1)=15
+y[2]=h[0]x[2]+h[1]x[1]+h[2]x[0]=5(8)+6(0)+0(1)=40
 
 - **Para y[3]:**
 
-y[3]=h[0]x[3]+h[1]x[2]+h[2]x[1]+h[3]x[0]=5(1)+6(3)+0(0)+0(1)=5+18=23
+y[3]=h[0]x[3]+h[1]x[2]+h[2]x[1]+h[3]x[0]=5(1)+6(8)+0(0)+0(1)=5+48=53
 
 Siguiendo esta metodología, podemos calcular todos los valores hasta y[15].
 Por lo tanto, el resultado final de la convolución es:
 
-**y[n]={5,6,15,23,42,59,67,44,70,79,90,38,35,35,22,20}**
+**y[n]={5, 6, 40, 53, 48, 82, 154, 61, 134, 150, 140, 40, 108, 49, 45, 35}**
 
 Ya obteniendo la convulcion podemos porseguir con el codigo para poder hallar la representacionde grafica de la convolucion y[n] 
 
@@ -276,8 +287,9 @@ En este código se calcula la convolución discreta entre dos secuencias h[n] y 
 
 -**Paso 1: Definir las secuencias h[n] y x[n]**
 
-    h_new = np.array([5, 6, 0, 0, 6, 3, 5])  # Código 5600557
-    x_new = np.array([1, 0, 3, 1, 6, 4, 4, 1, 2, 4])  # Cédula 1193563261
+    h_new = np.array([5, 6, 0, 0, 7, 0, 5])  # Código 5600705
+    x_new = np.array([1, 0, 8, 1, 7, 8, 9, 0, 9, 7])  # Cédula 1081789097
+
 Aquí estamos creando dos arreglos NumPy (np.array), que contienen los valores de las secuencias 
 h[n] y x[n].
 
@@ -288,6 +300,7 @@ h[n] y x[n].
 -**Paso 2: Calcular la convolución con np.convolve()**
           
           y_new = np.convolve(x_new, h_new)
+
 np.convolve(x_new, h_new) multiplica y suma los valores de 
 x[n] y h[n] de manera desplazada, siguiendo la fórmula matemática:
 
@@ -296,26 +309,29 @@ y[n]= ∑ x[k]⋅h[n−k]
 Esto nos da la respuesta del sistema a la entrada dada.
 Ya con el codigo de la convolucion y el resultado dado el siguiente paso es contruir la grafica.
 
+```python
+import numpy as np
 import matplotlib.pyplot as plt
 
-                       # Valores de nimport matplotlib.pyplot as plt
-                      n_values = np.arange(len(y_new))
+# Valores de n
+n_values = np.arange(len(y_new))
 
-                       # Crear la gráfica de stem (señal discreta)
-                       plt.figure(figsize=(10, 5))
-                       plt.stem(n_values, y_new, use_line_collection=True)
-                       plt.xlabel('n')
-                       plt.ylabel('y[n]')
-                       plt.title('Representación Gráfica de la Convolución y[n]')
-                       plt.grid()
-                       plt.show()
+# Crear la gráfica de stem (señal discreta)
+plt.figure(figsize=(10, 5))
+plt.stem(n_values, y_new, use_line_collection=True)
+plt.xlabel('n')
+plt.ylabel('y[n]')
+plt.title('Representación Gráfica de la Convolución y[n]')
+plt.grid()
+plt.show()
+
                        
 Este código genera una representación gráfica de la señal resultante de la convolución 
 y[n] utilizando la función stem(), que es ideal para señales discretas. Primero, importamos matplotlib.pyplot para poder graficar. Luego, creamos un arreglo n_values con valores desde 0 hasta el tamaño de 
 y[n], lo que nos da los índices en el eje horizontal. Después, usamos plt.figure(figsize=(10, 5)) para definir el tamaño de la figura y plt.stem(n_values, y_new, use_line_collection=True) para graficar 
 y[n], donde use_line_collection=True mejora la visualización de las líneas verticales. Añadimos etiquetas con plt.xlabel('n') y plt.ylabel('y[n]') para indicar qué representan los ejes.
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/ConvolucionOl.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/ConvolucionDiego.png?raw=true)
 
 La gráfica nos muestra cómo la señal cambia al pasar por el sistema, destacando qué partes tienen mayor respuesta y dónde la señal pierde fuerza.
 
@@ -365,7 +381,7 @@ x2 = np.sin(2 * np.pi * f * n * Ts): Genera una onda seno de 100 Hz.
 np.correlate(x1, x2, mode='full'): Calcula la similitud entre x1 y x2 a medida que una se desplaza sobre la otra.
 lags = np.arange(-len(n) + 1, len(n)): Define los desplazamientos posibles para la correlación.
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/CorrelacionNuOl.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/CorrelacionJuan.png?raw=true)
 
 
 La correlación cruzada indica cómo varía la similitud entre x1 y x2 en función del desplazamiento. Dado que coseno y seno están desfasados 90° (π/2 radianes), la correlación será máxima en un desplazamiento específico y disminuirá en otros puntos. La gráfica muestra esta variación y ayuda a identificar el punto donde ambas señales están más alineadas.
