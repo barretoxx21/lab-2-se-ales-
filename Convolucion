@@ -1,0 +1,156 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Feb 19 19:14:24 2025
+
+@author: valen
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+import wfdb
+from scipy.signal import welch
+
+def cargar_senal_ecg(archivo):
+    registro, campos = wfdb.rdsamp(archivo)
+    frecuencia_muestreo = campos['fs']
+    señal_ecg = registro[:, 3]  # Solo tomar una derivación
+    return señal_ecg, frecuencia_muestreo
+
+# Cargar la señal automáticamente
+nombre_archivo = 'C:/Users/valen/Downloads/ath_003'  # Modificar con la ruta correcta
+senal_ecg, fs = cargar_senal_ecg(nombre_archivo)
+
+# Caracterización en el dominio del tiempo
+media = np.mean(senal_ecg)
+desviacion = np.std(senal_ecg)
+mediana = np.median(senal_ecg)
+varianza = np.var(senal_ecg)
+
+print(f"Frecuencia de muestreo: {fs} Hz")
+print(f"Media: {media}")
+print(f"Desviación estándar: {desviacion}")
+print(f"Mediana: {mediana}")
+print(f"Varianza: {varianza}")
+
+# Transformada de Fourier
+t = np.arange(len(senal_ecg)) / fs
+frecuencias = np.fft.fftfreq(len(senal_ecg), 1/fs)
+transformada = np.fft.fft(senal_ecg)
+
+# Densidad espectral de potencia
+frecuencias_welch, densidad_espectral = welch(senal_ecg, fs)
+
+# Análisis de estadísticos en el dominio de la frecuencia
+frecuencia_media = np.sum(frecuencias_welch * densidad_espectral) / np.sum(densidad_espectral)
+frecuencia_mediana = frecuencias_welch[np.where(np.cumsum(densidad_espectral) >= np.sum(densidad_espectral) / 2)[0][0]]
+desviacion_frecuencia = np.sqrt(np.sum((frecuencias_welch - frecuencia_media)**2 * densidad_espectral) / np.sum(densidad_espectral))
+
+# Histograma de frecuencias
+plt.figure(figsize=(12, 5))
+plt.hist(frecuencias_welch, bins=30, weights=densidad_espectral, alpha=0.7, color='b', edgecolor='k')
+plt.xlabel('Frecuencia (Hz)')
+plt.ylabel('Densidad espectral de potencia')
+plt.title('Histograma de Frecuencias')
+plt.grid()
+plt.show()
+
+print(f"Frecuencia media: {frecuencia_media} Hz")
+print(f"Frecuencia mediana: {frecuencia_mediana} Hz")
+print(f"Desviación estándar de la frecuencia: {desviacion_frecuencia} Hz")
+
+# Gráficas de la señal ECG y su transformada de Fourier
+plt.figure(figsize=(12, 5))
+plt.subplot(2, 1, 1)
+plt.plot(t, senal_ecg, label='ECG')
+plt.xlabel('Tiempo (s)')
+plt.ylabel('Amplitud')
+plt.title('Señal ECG en el tiempo')
+plt.legend()
+plt.grid()
+
+plt.subplot(2, 1, 2)
+plt.plot(frecuencias[:len(frecuencias)//2], np.abs(transformada[:len(frecuencias)//2]))
+plt.xlabel('Frecuencia (Hz)')
+plt.ylabel('Magnitud')
+plt.title('Transformada de Fourier de la señal ECG')
+plt.grid()
+
+plt.tight_layout()
+plt.show()
+
+# Definir las secuencias h[n] y x[n]
+h = np.array([5, 6, 0, 0, 6, 3, 5])  # Código
+x = np.array([1, 0, 3, 1, 6, 4, 4, 1, 2, 4])  # Cédula
+
+# Realizar la convolución discreta
+y = np.convolve(x, h)
+
+# Valores de n
+n_values = np.arange(len(y))
+
+# Crear la gráfica de la convolución
+plt.figure(figsize=(10, 5))
+plt.stem(n_values, y)
+plt.xlabel('n')
+plt.ylabel('y[n]')
+plt.title('Convolución Olfred y[n]')
+plt.grid()
+plt.show()
+
+# Definir nuevas secuencias h[n] y x[n]
+h_new = np.array([5, 6, 0, 0, 5, 5, 7])  # Código 5600557
+x_new = np.array([1, 1, 9, 3, 5, 6, 3, 2, 6, 1])  # Cédula 1193563261
+
+# Realizar la convolución discreta
+y_new = np.convolve(x_new, h_new)
+
+# Valores de n
+n_values_new = np.arange(len(y_new))
+
+# Crear la gráfica de la nueva convolución
+plt.figure(figsize=(10, 5))
+plt.stem(n_values_new, y_new)
+plt.xlabel('n')
+plt.ylabel('y[n]')
+plt.title('Convolución Nupan y[n]')
+plt.grid()
+plt.show()
+
+# Definir parámetros para señales x1[n] y x2[n]
+fs = 1 / (1.25e-3)  # Frecuencia de muestreo (1/Ts)
+Ts = 1 / fs  # Período de muestreo
+n = np.arange(0, 9)  # Valores de n
+f = 100  # Frecuencia de la señal en Hz
+
+# Definir las señales x1[n] y x2[n]
+x1 = np.cos(2 * np.pi * f * n * Ts)
+x2 = np.sin(2 * np.pi * f * n * Ts)
+
+# Calcular la correlación cruzada entre x1 y x2
+correlation = np.correlate(x1, x2, mode='full')
+
+# Representación gráfica
+plt.figure(figsize=(12, 5))
+
+# Señales x1[n] y x2[n]
+plt.subplot(2, 1, 1)
+plt.stem(n, x1, linefmt='b-', markerfmt='bo', basefmt=" ")
+plt.stem(n, x2, linefmt='r-', markerfmt='ro', basefmt=" ")
+plt.xlabel('n')
+plt.ylabel('Amplitud')
+plt.title('Señales x1[n] y x2[n]')
+plt.legend(['x1[n]', 'x2[n]'])
+plt.grid()
+
+# Correlación cruzada
+lags = np.arange(-len(n) + 1, len(n))
+plt.subplot(2, 1, 2)
+plt.stem(lags, correlation)
+plt.xlabel('Desplazamiento (lags)')
+plt.ylabel('Correlación')
+plt.title('Correlación entre x1[n] y x2[n]')
+plt.grid()
+
+plt.tight_layout()
+plt.show()
+
