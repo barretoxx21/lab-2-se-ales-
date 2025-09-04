@@ -29,7 +29,7 @@ A continuación, se explican los principales estadísticos utilizados en esta pr
 ## MEDIA :  
 La media es una medida de tendencia central que representa el valor promedio de una señal. Se calcula sumando todos los valores de la señal y dividiendo entre el número total de muestras. La media también se conoce como media aritmética o promedio. Además, la media de una distribución estadística es equivalente a su esperanza matemática.
 
-  ![](https://github.com/Nupan07/procesamiento/blob/main/MEDIA.png)
+  ![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2009.24.51_25a439f3.jpg)
 
   Donde:
 
@@ -41,7 +41,7 @@ La media es una medida de tendencia central que representa el valor promedio de 
 
 Es una medida de dispersión estadística que indica cuánto se alejan los valores de un conjunto de datos respecto a su media. En otras palabras, refleja el grado de variabilidad o dispersión de los datos: 
 
-  ![](https://github.com/Nupan07/procesamiento/blob/main/Desviaci%C3%B3n.png)
+  ![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2009.24.58_c394e951.jpg)
 
 Cuanto mayor sea la desviación estándar de un conjunto de datos, significa que más lejos están los datos de la media. Y la interpretación también se puede hacer al revés, si la desviación estándar es baja quiere decir que en general los datos están muy cerca de su media.
 
@@ -59,7 +59,7 @@ La mediana es el valor del medio de todos los datos ordenados de menor a mayor. 
 
 ## TRANSFORMA DE FOURIER
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/Transformada%20fourier.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2009.25.07_6db7e5b5.jpg)
 
 
 Esto se hace sumando los productos de los valores de la señal por senos y cosenos de distintas frecuencias.
@@ -72,7 +72,7 @@ Se obtiene elevando al cuadrado la magnitud de la transformada de Fourier y norm
 
 La convolución entre dos señales discretas se hace con la fórmula:
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/Convolucion.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2009.25.15_91b01ca9.jpg)
 
 
 Para cada punto de la nueva señal 𝑦[𝑛], desplazamos la secuencia ℎ[𝑘] sobre 𝑥[𝑛] y realizamos productos y sumas. Esto se puede hacer en una tabla escribiendo los valores de ℎ[𝑘]
@@ -82,7 +82,7 @@ en diferentes desplazamientos sobre 𝑥[𝑛], multiplicando y sumando los resu
 
 La correlación cruzada mide la similitud entre dos señales desplazadas en el tiempo. Se calcula con:
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/Correlaci%C3%B3n.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2009.25.23_874ac205.jpg)
 
 Para calcularla manualmente:
 
@@ -423,7 +423,7 @@ Una vez tengas instalada la librería, el siguiente paso es **cargar el archivo 
 
 Donde nos arroja la siguiente grafica :
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/Se%C3%B1alECG.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2009.25.36_6ed261e4.jpg)
 
 En la cual empezaremos a calcular la media , mediana y desviacion estandar dada a continuacion por este fragmento de codgio:
 
@@ -434,7 +434,7 @@ En la cual empezaremos a calcular la media , mediana y desviacion estandar dada 
 
 El cual nos arroja los siguientes resultados:
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/Resultados1.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2009.25.47_bdcbcbbc.jpg)
 
  **Análisis en el dominio del tiempo**
 
@@ -448,11 +448,11 @@ El cual nos arroja los siguientes resultados:
 - Se aplicó la Transformada de Fourier para analizar la composición en frecuencia de la señal ECG.
 - Se graficó la magnitud del espectro de frecuencias para identificar componentes dominantes.
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/TDF.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2009.26.00_13d69d43.jpg)
 
 y como ultimo sacamos la Densidad espectral 
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/Densidad.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2009.26.13_5acaf2d0.jpg)
 
 ## ANALISIS DATOS ESTADISTICOS 
 
