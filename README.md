@@ -104,6 +104,8 @@ Lo segundo que se realizo fue la correlacion cruzada entre dos señales sinusida
  **convolucion de juan**
 ![](https://github.com/Nupan07/Laboratorio2/blob/main/ConvolucionNupan.jpg)
 
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/f12016b3-ab77-4418-8a0d-3492eb3ddab4.png)
+
 
 Se hizo una convolucion discreta de dos secuencias x[n] y h[n] se define como una suma:    
                 
