@@ -235,14 +235,15 @@ y[n] utilizando la función stem(), que es ideal para señales discretas. Primer
 y[n], lo que nos da los índices en el eje horizontal. Después, usamos plt.figure(figsize=(10, 5)) para definir el tamaño de la figura y plt.stem(n_values, y_new, use_line_collection=True) para graficar 
 y[n], donde use_line_collection=True mejora la visualización de las líneas verticales. Añadimos etiquetas con plt.xlabel('n') y plt.ylabel('y[n]') para indicar qué representan los ejes.
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/ConvolucionNu.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2008.09.29_5d5f7e0b.jpg)
+
 
 
 La gráfica nos muestra cómo la señal cambia al pasar por el sistema, destacando qué partes tienen mayor respuesta y dónde la señal pierde fuerza.
 
 **convolucion de Diego**
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/ConvolucionOlfred.jpg)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2009.21.38_781a63b8.jpg)
 
 Se hizo una convolucion discreta de dos secuencias x[n] y h[n] se define como una suma:    
                 
@@ -351,7 +352,7 @@ y[n] utilizando la función stem(), que es ideal para señales discretas. Primer
 y[n], lo que nos da los índices en el eje horizontal. Después, usamos plt.figure(figsize=(10, 5)) para definir el tamaño de la figura y plt.stem(n_values, y_new, use_line_collection=True) para graficar 
 y[n], donde use_line_collection=True mejora la visualización de las líneas verticales. Añadimos etiquetas con plt.xlabel('n') y plt.ylabel('y[n]') para indicar qué representan los ejes.
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/ConvolucionOl.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2008.09.56_0d07d8f9.jpg)
 
 La gráfica nos muestra cómo la señal cambia al pasar por el sistema, destacando qué partes tienen mayor respuesta y dónde la señal pierde fuerza.
 
@@ -401,7 +402,7 @@ x2 = np.sin(2 * np.pi * f * n * Ts): Genera una onda seno de 100 Hz.
 np.correlate(x1, x2, mode='full'): Calcula la similitud entre x1 y x2 a medida que una se desplaza sobre la otra.
 lags = np.arange(-len(n) + 1, len(n)): Define los desplazamientos posibles para la correlación.
 
-![](https://github.com/Nupan07/Laboratorio2/blob/main/CorrelacionNuOl.png)
+![](https://github.com/barretoxx21/lab-2-se-ales-/blob/main/Imagen%20de%20WhatsApp%202025-09-04%20a%20las%2008.10.53_eb3510ed.jpg)
 
 
 La correlación cruzada indica cómo varía la similitud entre x1 y x2 en función del desplazamiento. Dado que coseno y seno están desfasados 90° (π/2 radianes), la correlación será máxima en un desplazamiento específico y disminuirá en otros puntos. La gráfica muestra esta variación y ayuda a identificar el punto donde ambas señales están más alineadas.
